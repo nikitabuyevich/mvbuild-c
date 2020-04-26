@@ -1,0 +1,26 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.obj
+*.dylib
+
+# Test binary
+*.test
+
+# Build directory
+build/
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Share JetBrains IDE project settings
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/dictionaries/
+.idea/dataSources/
+
+
