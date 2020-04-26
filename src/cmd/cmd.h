@@ -9,14 +9,16 @@
 #include <windows.h>
 // Define #define STB_DEFINE in main.c
 #include "stb/stb.h"
+#include "stb/stb_ds.h"
 
-struct Flag
+typedef struct Flag
 {
-    char **val;
+    char *val; // needs to be freed
     const char *name;
     const char *usage;
-};
+} Flag;
 
-void cmd_parse_str(char **val, const char *name, const char *usage, int argc, char **argv);
+void cmd_free_flags(Flag (*fs)[], int len);
+void cmd_parse_str(Flag (*fs)[], int len, int argc, char **argv);
 
 #endif //CMD_H

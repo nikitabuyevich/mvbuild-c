@@ -6,6 +6,7 @@ Meant to be used as a post-build step when working with DLLs.
 
 
 Arguments:
+
 	-class string
 		Process class name to kill. e.g., "ConsoleWindowClass"
 	-src string
