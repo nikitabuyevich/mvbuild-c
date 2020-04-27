@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    // Update index if order is modified
+    // Update index of values if order is modified
     Flag flags[] = {
         {.name = "class", .usage = "Process class name to kill. e.g., \"ConsoleWindowClass\""},
         {.name = "src", .usage = "Source to copy contents from. Must be a full path."},

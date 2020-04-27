@@ -2,11 +2,14 @@
 #define CP_H
 
 #include <stdio.h>
+// Included here to avoid debugging nightmares later
+// since windows.h must come before stb.h
+#include <windows.h>
+// Define #define STB_DEFINE in main.c
+#include "stb/stb.h"
 
-// cp copies the contents from one source file to another.
-// Returns -1 if unable to open src file.
-// Returns -2 if unable to write to dst file.
-// Returns 0 on successful copy.
-int cp(char dst[], char src[]);
+// Copies the contents from one source file to another.
+// Destination file is created if it does not exist.
+void cp(char dst[], char src[]);
 
 #endif //CP_H

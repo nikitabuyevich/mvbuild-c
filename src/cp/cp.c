@@ -1,20 +1,16 @@
 #include "cp.h"
 
-int cp(char dst[], char src[])
+void normalize_filename(char *fn)
 {
-    FILE *rBuf, *wBuf;
-    if (fopen_s(&rBuf, src, "r") != 0) {
-        return -1;
-    }
-    if (fopen_s(&wBuf, dst, "w") != 0) {
-        fclose(rBuf);
-        return -2;
-    }
-    int c;
-    while ((c = fgetc(rBuf)) != EOF) {
-        fputc(c, wBuf);
-    }
-    fclose(rBuf);
-    fclose(wBuf);
-    return 0;
+    stb_replaceinplace(fn, "\\", "/");
+}
+
+void cp(char dst[], char src[])
+{
+    normalize_filename(dst);
+    normalize_filename(src);
+    size_t srcLen;
+    void *srcData = stb_file(src, &srcLen);
+    stb_filewrite(dst, srcData, srcLen);
+    free(srcData);
 }
