@@ -15,12 +15,12 @@ int main(int argc, char *argv[])
     };
     int flagsLen = sizeof(flags) / sizeof(flags[0]);
     cmd_parse_str(&flags, flagsLen, argc, argv);
-    char *classVal = flags[0].val;
-    char *srcVal = flags[1].val;
-    char *dstVal = flags[2].val;
+    char *class = flags[0].val;
+    char *src = flags[1].val;
+    char *dst = flags[2].val;
 
-    wnd_kill_processes_by_class_name(classVal);
-    cp(dstVal, srcVal);
+    wnd_kill_processes_by_class_name(class);
+    cp(dst, src);
 
     cmd_free_flags(&flags, flagsLen);
     return 0;
