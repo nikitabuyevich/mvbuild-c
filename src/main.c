@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
         {.name = "dst", .usage = "Destination to copy contents to. Must be a full path."}
     };
     int flagsLen = sizeof(flags) / sizeof(flags[0]);
-    cmd_parse_str(&flags, flagsLen, argc, argv);
+    cmd_parse_str((Flag (*)[]) &flags, flagsLen, argc, argv);
     char *class = flags[0].val;
     char *src = flags[1].val;
     char *dst = flags[2].val;
@@ -22,6 +22,6 @@ int main(int argc, char *argv[])
     wnd_kill_processes_by_class_name(class);
     cp(dst, src);
 
-    cmd_free_flags(&flags, flagsLen);
+    cmd_free_flags((Flag (*)[]) &flags, flagsLen);
     return 0;
 }
