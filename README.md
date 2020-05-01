@@ -4,6 +4,8 @@ A fast and tiny C program which kills a specified process and copies contents of
 
 Meant to be used as a post-build step when working with DLLs to easily launch an application after a new DLL is compiled.
 
+There is also a [C++ implementation of the same application](https://github.com/nikitabuyevich/mvbuild).
+
 
 Command-Line Arguments:
 
@@ -14,4 +16,7 @@ Command-Line Arguments:
 	-dst string
 		Destination to copy contents to. Must be a full path.
 
-
+Example:
+```bash
+mvbuild.exe -class=ConsoleWindowClass -src=C/build/lib.dll -dst=C/game/lib.dll
+```
